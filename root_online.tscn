@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bpidh44r8wfkh"]
+
+[ext_resource type="Script" uid="uid://ccoa0jhncqdy1" path="res://main_online.gd" id="1_i2i5c"]
+[ext_resource type="Script" uid="uid://umhe56fft7b1" path="res://fighter_online.gd" id="1_krp2t"]
+
+[node name="RootOnline" type="Node" unique_id=631142843]
+
+[node name="Main" type="Node" parent="." unique_id=75817574]
+script = ExtResource("1_i2i5c")
+
+[node name="Fighter1" type="Node" parent="Main" unique_id=1870616502]
+script = ExtResource("1_krp2t")
+
+[node name="Fighter2" type="Node" parent="Main" unique_id=213058775]
+script = ExtResource("1_krp2t")
+
+[node name="UI" type="Control" parent="." unique_id=1151554713]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="F1_HP" type="ProgressBar" parent="UI" unique_id=510688805]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 29.0
+offset_right = 518.0
+offset_bottom = 84.0
+value = 100.0
+fill_mode = 1
+
+[node name="F1_Charge" type="ProgressBar" parent="UI" unique_id=809508211]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 374.0
+offset_right = 116.0
+offset_bottom = 590.0
+max_value = 1.0
+value = 0.67
+fill_mode = 3
+
+[node name="F2_HP" type="ProgressBar" parent="UI" unique_id=950151261]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 29.0
+offset_right = 1027.0
+offset_bottom = 84.0
+value = 100.0
+
+[node name="F2_Charge" type="ProgressBar" parent="UI" unique_id=1009425084]
+layout_mode = 0
+offset_left = 1033.0
+offset_top = 362.0
+offset_right = 1065.0
+offset_bottom = 578.0
+max_value = 1.0
+value = 0.67
+fill_mode = 3

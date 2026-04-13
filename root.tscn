@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bi532nkexi1rp"]
+
+[ext_resource type="Script" uid="uid://baaagaf6ky46r" path="res://main.gd" id="1_pyidc"]
+[ext_resource type="Script" uid="uid://bvg3puffjsjab" path="res://fighter.gd" id="2_vvh5c"]
+
+[node name="Root" type="Node" unique_id=1525550825]
+
+[node name="Main" type="Node" parent="." unique_id=1028798331]
+script = ExtResource("1_pyidc")
+
+[node name="Fighter1" type="Node" parent="Main" unique_id=1194708070]
+script = ExtResource("2_vvh5c")
+
+[node name="Fighter2" type="Node" parent="Main" unique_id=2092338978]
+script = ExtResource("2_vvh5c")
+
+[node name="UI" type="Control" parent="." unique_id=1026674148]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="F1_HP" type="ProgressBar" parent="UI" unique_id=325258404]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 29.0
+offset_right = 518.0
+offset_bottom = 84.0
+value = 80.0
+fill_mode = 1
+
+[node name="F1_Charge" type="ProgressBar" parent="UI" unique_id=1471168721]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 374.0
+offset_right = 116.0
+offset_bottom = 590.0
+max_value = 3.0
+value = 2.0
+fill_mode = 3
+
+[node name="F2_HP" type="ProgressBar" parent="UI" unique_id=1634643261]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 29.0
+offset_right = 1027.0
+offset_bottom = 84.0
+value = 80.0
+
+[node name="F2_Charge" type="ProgressBar" parent="UI" unique_id=1484023534]
+layout_mode = 0
+offset_left = 1033.0
+offset_top = 362.0
+offset_right = 1065.0
+offset_bottom = 578.0
+max_value = 3.0
+value = 2.0
+fill_mode = 3

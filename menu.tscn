@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://r5gp3d4i56wy"]
+
+[ext_resource type="Script" uid="uid://ckoi4wujb6tc6" path="res://menu.gd" id="1_lti8b"]
+
+[node name="Menu" type="Control" unique_id=1732806922]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lti8b")
+
+[node name="Offline" type="Button" parent="." unique_id=1843166218]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 0
+offset_left = 461.0
+offset_top = 177.0
+offset_right = 701.0
+offset_bottom = 208.0
+text = "Offline"
+
+[node name="Host" type="Button" parent="." unique_id=1913984030]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 0
+offset_left = 457.0
+offset_top = 347.0
+offset_right = 697.0
+offset_bottom = 378.0
+text = "Host"
+
+[node name="Join" type="Button" parent="." unique_id=132953425]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 0
+offset_left = 458.0
+offset_top = 311.0
+offset_right = 698.0
+offset_bottom = 342.0
+text = "Join"
+
+[node name="Address" type="LineEdit" parent="." unique_id=1138956938]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 0
+offset_left = 457.0
+offset_top = 275.0
+offset_right = 697.0
+offset_bottom = 306.0
+text = "localhost"
+placeholder_text = "localhost"
