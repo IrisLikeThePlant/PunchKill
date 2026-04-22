@@ -34,4 +34,4 @@ func _on_server_ready() -> void:
 
 @rpc("authority", "call_local", "reliable")
 func rpc_load_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/froot_online.tscn")
+	get_tree().change_scene_to_file("res://scenes/root_online.tscn")
