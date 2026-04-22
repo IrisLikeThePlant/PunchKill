@@ -1,5 +1,5 @@
 extends Node
-@export var debug_both_players : bool = true
+@export var offline_mode : bool = true
 
 @onready var fighter1 : Fighter_Online = $Fighter1
 @onready var fighter2 : Fighter_Online = $Fighter2
@@ -8,6 +8,10 @@ extends Node
 @onready var f1_charge: ProgressBar = $"../UI/F1_Charge"
 @onready var f2_hp: ProgressBar = $"../UI/F2_HP"
 @onready var f2_charge: ProgressBar = $"../UI/F2_Charge"
+
+@onready var f1_visuals: Node3D = $"../Visuals/F1"
+@onready var f2_visuals: Node3D = $"../Visuals/F2"
+
 
 const P1_Action := "p1_charge"
 const P2_Action := "p2_charge"
@@ -82,7 +86,7 @@ func _input(event: InputEvent) -> void:
 
 	var action := P1_Action if local_player == 1 else P2_Action
 	
-	if debug_both_players:
+	if offline_mode:
 		if event.is_action_pressed("p1_charge"):
 			_send_charge_begin_for(1)
 		elif event.is_action_released("p1_charge"):
@@ -268,11 +272,14 @@ func _on_state_changed(pid: int, s: Fighter_Online.State) -> void:
 		Fighter_Online.State.STUNNED:
 			set_stunned(pid, true)
 			set_charge(pid, 0.0)
+			set_animation(pid, "Stunned_001")
 		Fighter_Online.State.IDLE:
 			set_stunned(pid, false)
 			set_charge(pid, 0.0)
+			set_animation(pid, "Idle_001")
 		Fighter_Online.State.CHARGING:
 			set_stunned(pid, false)
+			set_animation(pid, "Charge_001")
 
 func _on_hit_landed(attacker_id: int, dmg: float, hit_type: String) -> void:
 	pass
@@ -300,3 +307,9 @@ func set_charge(pid: int, held: float) -> void:
 func set_stunned(pid: int, is_stunned: bool) -> void:
 	var charge_bar := f1_charge if pid == 1 else f2_charge
 	charge_bar.modulate = Color(0.5, 0.5, 0.5) if is_stunned else Color.WHITE
+	
+func set_animation(pid: int, animation_name: String) -> void:
+	var visuals := f1_visuals if pid == 1 else f2_visuals
+	var player := visuals.get_node("AnimationPlayer") as AnimationPlayer
+	var animation_name_combined = "moves/" + animation_name
+	player.play(animation_name_combined)

@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bpidh44r8wfkh"]
+
+[ext_resource type="Script" uid="uid://ccoa0jhncqdy1" path="res://main_online.gd" id="1_5lspj"]
+[ext_resource type="Script" uid="uid://umhe56fft7b1" path="res://fighter_online.gd" id="2_84y74"]
+[ext_resource type="PackedScene" uid="uid://prrirkjd4f0l" path="res://scenes/base_mesh.tscn" id="3_eqas5"]
+[ext_resource type="Texture2D" uid="uid://btl0c4kpevyw0" path="res://assets/textures/texture_08.png" id="4_ht8qb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_680vr"]
+albedo_texture = ExtResource("4_ht8qb")
+uv1_scale = Vector3(45, 10, 10)
+uv2_scale = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v8epf"]
+lightmap_size_hint = Vector2i(167, 139)
+material = SubResource("StandardMaterial3D_680vr")
+size = Vector3(24.705, 1, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uno1y"]
+albedo_texture = ExtResource("4_ht8qb")
+uv1_scale = Vector3(44, 30, 45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_680vr"]
+material = SubResource("StandardMaterial3D_uno1y")
+size = Vector3(24, 22.375, 1)
+
+[sub_resource type="Environment" id="Environment_680vr"]
+
+[node name="RootOnline" type="Node3D" unique_id=923332706]
+
+[node name="Main" type="Node" parent="." unique_id=75817574]
+script = ExtResource("1_5lspj")
+
+[node name="Fighter1" type="Node" parent="Main" unique_id=1870616502]
+script = ExtResource("2_84y74")
+
+[node name="Fighter2" type="Node" parent="Main" unique_id=213058775]
+script = ExtResource("2_84y74")
+
+[node name="UI" type="Control" parent="." unique_id=1151554713]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="F1_HP" type="ProgressBar" parent="UI" unique_id=510688805]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 29.0
+offset_right = 518.0
+offset_bottom = 84.0
+value = 100.0
+fill_mode = 1
+
+[node name="F1_Charge" type="ProgressBar" parent="UI" unique_id=809508211]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 374.0
+offset_right = 116.0
+offset_bottom = 590.0
+max_value = 1.0
+value = 0.67
+fill_mode = 3
+
+[node name="F2_HP" type="ProgressBar" parent="UI" unique_id=950151261]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 29.0
+offset_right = 1027.0
+offset_bottom = 84.0
+value = 100.0
+
+[node name="F2_Charge" type="ProgressBar" parent="UI" unique_id=1009425084]
+layout_mode = 0
+offset_left = 1033.0
+offset_top = 362.0
+offset_right = 1065.0
+offset_bottom = 578.0
+max_value = 1.0
+value = 0.67
+fill_mode = 3
+
+[node name="Visuals" type="Node3D" parent="." unique_id=743862116]
+
+[node name="Camera3D" type="Camera3D" parent="Visuals" unique_id=943873872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0953777, 3.76653)
+
+[node name="F1" parent="Visuals" unique_id=1204071687 instance=ExtResource("3_eqas5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="F2" parent="Visuals" unique_id=169509335 instance=ExtResource("3_eqas5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0, 0)
+
+[node name="Stage" type="Node3D" parent="Visuals" unique_id=791383075]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals/Stage" unique_id=531415521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_v8epf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Visuals/Stage" unique_id=575952616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27352893, -0.7674279, -4.5130587)
+mesh = SubResource("BoxMesh_680vr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Visuals/Stage" unique_id=816070923]
+transform = Transform3D(1, 0, 0, 0, 0.47794083, 0.87839204, 0, -0.87839204, 0.47794083, 0, 5.549686, 0)
+shadow_enabled = true
+shadow_reverse_cull_face = true
+shadow_opacity = 0.55
+shadow_blur = 3.746
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Visuals/Stage" unique_id=605816226]
+environment = SubResource("Environment_680vr")
+
+[editable path="Visuals/F1"]
+[editable path="Visuals/F2"]

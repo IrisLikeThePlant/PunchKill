@@ -1,0 +1,12 @@
+# Blender 5.1.1 MTL File: 'BaseMesh.blend'
+# www.blender.org
+
+newmtl Material.001
+Ns 978.836548
+Ka 1.000000 1.000000 1.000000
+Kd 0.517334 0.404510 0.307519
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2

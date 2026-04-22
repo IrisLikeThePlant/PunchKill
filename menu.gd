@@ -15,7 +15,7 @@ func _ready() -> void:
 	Network.server_ready.connect(_on_server_ready)
 	
 func _on_offline_pressed() -> void:
-	get_tree().change_scene_to_file("res://root.tscn")
+	get_tree().change_scene_to_file("res://scenes/root.tscn")
 	
 func _on_host_pressed() -> void:
 	offline.disabled = true
@@ -34,4 +34,4 @@ func _on_server_ready() -> void:
 
 @rpc("authority", "call_local", "reliable")
 func rpc_load_game() -> void:
-	get_tree().change_scene_to_file("res://root_online.tscn")
+	get_tree().change_scene_to_file("res://scenes/froot_online.tscn")
